@@ -23,10 +23,10 @@ challenge_page = MyTools.challenge_page(user_session, challenge_url)
 hash_to_break = MyTools.get_content(message_start, message_end, challenge_page.text)
 
 # Break the hash
-hash_broke = str(Hash_breaker_SHA1_4(hash_to_break))
+broken_hash = str(Hash_breaker_SHA1_4(hash_to_break))
 
 # Go to the Flag page
-flag_page = MyTools.flag_page(user_session, challenge_url, hash_broke)
+flag_page = MyTools.flag_page(user_session, challenge_url, broken_hash)
 
 # Split the flag
 flag = MyTools.get_content(flag_start, flag_end, flag_page.text)
